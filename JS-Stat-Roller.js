@@ -6,6 +6,16 @@ let functionOutput4 = document.querySelector("#function-read4")
 let functionOutput5 = document.querySelector("#function-read5")
 let functionOutput6 = document.querySelector("#function-read6")
 
+function ReloadLastRoll () {
+    if (localStorage.getItem("roll1") != null) {
+        functionOutput1.innerHTML = localStorage.getItem("roll1");
+        functionOutput2.innerHTML = localStorage.getItem("roll2");
+        functionOutput3.innerHTML = localStorage.getItem("roll3");
+        functionOutput4.innerHTML = localStorage.getItem("roll4");
+        functionOutput5.innerHTML = localStorage.getItem("roll5");
+        functionOutput6.innerHTML = localStorage.getItem("roll6");
+    }
+}
 
 function rollStats(x) {
     //Controls user-requested iterations
@@ -35,11 +45,25 @@ function rollStats(x) {
             statList.push(endStat);
         }
         console.log(statList);
+
         functionOutput1.innerHTML = statList[0];
+        localStorage.setItem("roll1" , statList[0]);
+
         functionOutput2.innerHTML = statList[1];
+        localStorage.setItem("roll2" , statList[1]);
+
         functionOutput3.innerHTML = statList[2];
+        localStorage.setItem("roll3" , statList[2])
+
         functionOutput4.innerHTML = statList[3];
+        localStorage.setItem("roll4" , statList[3])
+
         functionOutput5.innerHTML = statList[4];
+        localStorage.setItem("roll5" , statList[4])
+
         functionOutput6.innerHTML = statList[5];
+        localStorage.setItem("roll6" , statList[5])
     }
 };
+
+ReloadLastRoll()
